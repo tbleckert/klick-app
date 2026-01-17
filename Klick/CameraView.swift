@@ -207,6 +207,13 @@ struct CameraView: View {
                 savePhotoToDatabase(filename: filename)
                 triggerPhotoAnimation(image: image)
             }
+
+            // Warm up image processing on first launch
+            DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 0.5) {
+                // Create a tiny dummy image to warm up the resize pipeline
+                let dummyImage = UIImage(systemName: "camera") ?? UIImage()
+                _ = self.resizeImage(dummyImage, targetSize: CGSize(width: 100, height: 100))
+            }
         }
         .fullScreenCover(isPresented: $showGallery) {
             GalleryView()

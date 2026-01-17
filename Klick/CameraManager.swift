@@ -30,12 +30,38 @@ class CameraManager: NSObject, ObservableObject {
 
     private let ciContext = CIContext()
 
+    // Child-friendly camera shutter sounds that cycle through
+    private let shutterSounds: [SystemSoundID] = [
+        1108, // photoShutter.caf - classic camera
+        1103, // Tink.caf - light tap
+        1104, // Tock.caf - playful tap
+        1105, // Pop.caf - bubble pop
+        1106, // KeyPressClick.caf - click
+        1107  // SMS_Alert_Tone.caf - notification
+    ]
+    private var currentSoundIndex = 0
+
     var onPhotoCaptured: ((String, UIImage) -> Void)?
     var onFilteredFrameReady: ((CIImage) -> Void)?
     
     override init() {
         super.init()
+        preloadResources()
         checkPermissions()
+    }
+
+    private func preloadResources() {
+        // Preload all sounds to avoid first-time lag
+        for soundID in shutterSounds {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate) // Silent preload
+        }
+
+        // Warm up the graphics renderer
+        DispatchQueue.global(qos: .userInitiated).async {
+            let dummySize = CGSize(width: 100, height: 100)
+            let renderer = UIGraphicsImageRenderer(size: dummySize)
+            _ = renderer.image { _ in }
+        }
     }
     
     func checkPermissions() {
@@ -189,8 +215,11 @@ class CameraManager: NSObject, ObservableObject {
     }
 
     func capturePhoto() {
-        // Play shutter sound immediately for feedback
-        AudioServicesPlaySystemSound(1108)
+        // Play cycling shutter sound immediately for feedback
+        AudioServicesPlaySystemSound(shutterSounds[currentSoundIndex])
+
+        // Cycle to next sound for next photo
+        currentSoundIndex = (currentSoundIndex + 1) % shutterSounds.count
 
         sessionQueue.async { [weak self] in
             guard let self = self else { return }
