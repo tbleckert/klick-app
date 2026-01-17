@@ -39,57 +39,40 @@ struct GalleryView: View {
                         .foregroundColor(.gray)
                 }
             } else {
-                ZStack {
-                    // Photo viewer with swipe (horizontal paging)
-                    TabView(selection: $currentIndex) {
-                        ForEach(Array(photos.enumerated()), id: \.element.id) { index, photo in
-                            PhotoPageView(photo: photo)
-                                .tag(index)
-                        }
+                // Photo viewer with swipe (horizontal paging)
+                TabView(selection: $currentIndex) {
+                    ForEach(Array(photos.enumerated()), id: \.element.id) { index, photo in
+                        PhotoPageView(photo: photo)
+                            .tag(index)
                     }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
-                    .ignoresSafeArea()
-
-                    // Vertical-dismiss overlay that won't interfere with horizontal paging
-                    Color.clear
-                        .contentShape(Rectangle())
-                        .ignoresSafeArea()
-                        .highPriorityGesture(
-                            DragGesture(minimumDistance: 10, coordinateSpace: .local)
-                                .onChanged { value in
-                                    let v = value.translation.height
-                                    let h = abs(value.translation.width)
-
-                                    // Only start moving when clearly vertical and downward
-                                    if v > 8 && v > h {
-                                        var t = Transaction()
-                                        t.disablesAnimations = true
-                                        withTransaction(t) {
-                                            dragOffset = v
-                                        }
-                                    } else {
-                                        var t = Transaction()
-                                        t.disablesAnimations = true
-                                        withTransaction(t) {
-                                            dragOffset = 0
-                                        }
-                                    }
-                                }
-                                .onEnded { value in
-                                    let v = value.translation.height
-                                    let h = abs(value.translation.width)
-
-                                    if v > 120 && v > h {
-                                        dismiss()
-                                    } else {
-                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                                            dragOffset = 0
-                                        }
-                                    }
-                                }
-                        )
                 }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .ignoresSafeArea()
                 .offset(y: dragOffset)
+                .simultaneousGesture(
+                    DragGesture(minimumDistance: 50, coordinateSpace: .local)
+                        .onChanged { value in
+                            let v = value.translation.height
+                            let h = abs(value.translation.width)
+
+                            // Only respond to clearly vertical downward drags
+                            if v > 0 && v > h * 2.0 {
+                                dragOffset = v
+                            }
+                        }
+                        .onEnded { value in
+                            let v = value.translation.height
+                            let h = abs(value.translation.width)
+
+                            if v > 100 && v > h * 1.5 {
+                                dismiss()
+                            } else {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                    dragOffset = 0
+                                }
+                            }
+                        }
+                )
                 
                 // Photo counter
                 VStack {
