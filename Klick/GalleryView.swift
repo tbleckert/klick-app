@@ -143,38 +143,39 @@ struct PhotoPageView: View {
                     .scaleEffect(scale)
                     .offset(offset)
                     .gesture(
-                        SimultaneousGesture(
-                            MagnificationGesture()
-                                .onChanged { value in
-                                    let delta = value / lastScale
-                                    lastScale = value
-                                    scale = max(1.0, min(scale * delta, 5.0))
-                                }
-                                .onEnded { _ in
-                                    lastScale = 1.0
-                                    if scale <= 1.0 {
-                                        withAnimation(.spring(response: 0.3)) {
-                                            scale = 1.0
-                                            offset = .zero
-                                            lastOffset = .zero
-                                        }
-                                    }
-                                },
-                            DragGesture()
-                                .onChanged { value in
-                                    if scale > 1.0 {
-                                        offset = CGSize(
-                                            width: lastOffset.width + value.translation.width,
-                                            height: lastOffset.height + value.translation.height
-                                        )
+                        MagnificationGesture()
+                            .onChanged { value in
+                                let delta = value / lastScale
+                                lastScale = value
+                                scale = max(1.0, min(scale * delta, 5.0))
+                            }
+                            .onEnded { _ in
+                                lastScale = 1.0
+                                if scale <= 1.0 {
+                                    withAnimation(.spring(response: 0.3)) {
+                                        scale = 1.0
+                                        offset = .zero
+                                        lastOffset = .zero
                                     }
                                 }
-                                .onEnded { _ in
-                                    if scale > 1.0 {
-                                        lastOffset = offset
-                                    }
+                            }
+                    )
+                    .simultaneousGesture(
+                        DragGesture(minimumDistance: 10)
+                            .onChanged { value in
+                                if scale > 1.0 {
+                                    offset = CGSize(
+                                        width: lastOffset.width + value.translation.width,
+                                        height: lastOffset.height + value.translation.height
+                                    )
                                 }
-                        )
+                            }
+                            .onEnded { _ in
+                                if scale > 1.0 {
+                                    lastOffset = offset
+                                }
+                            },
+                        including: scale > 1.0 ? .all : .subviews
                     )
                     .onTapGesture(count: 2) {
                         withAnimation(.spring(response: 0.3)) {
