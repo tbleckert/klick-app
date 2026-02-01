@@ -33,6 +33,7 @@ struct KlickApp: App {
 
 struct HomeView: View {
     @State private var showCamera = false
+    @State private var showCarGame = false
 
     var body: some View {
         ZStack {
@@ -61,43 +62,55 @@ struct HomeView: View {
                     .font(.custom("Chalkboard SE", size: 36))
                     .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.14))
 
-                Button(action: {
-                    showCamera = true
-                }) {
-                    VStack(spacing: 16) {
-                        ZStack {
-                            Circle()
-                                .fill(
-                                    LinearGradient(
-                                        colors: [
-                                            Color(red: 0.99, green: 0.58, blue: 0.32),
-                                            Color(red: 0.97, green: 0.34, blue: 0.25)
-                                        ],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                                .frame(width: 200, height: 200)
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 24) {
+                        HomeTileButton(
+                            iconName: "camera.fill",
+                            colors: [
+                                Color(red: 0.99, green: 0.58, blue: 0.32),
+                                Color(red: 0.97, green: 0.34, blue: 0.25)
+                            ],
+                            accessibilityLabel: "Kamera"
+                        ) {
+                            showCamera = true
+                        }
 
-                            Circle()
-                                .stroke(Color.white.opacity(0.8), lineWidth: 6)
-                                .frame(width: 200, height: 200)
-
-                            Image(systemName: "camera.fill")
-                                .font(.system(size: 68, weight: .bold))
-                                .foregroundColor(.white)
-                                .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
+                        HomeTileButton(
+                            iconName: "car.fill",
+                            colors: [
+                                Color(red: 0.42, green: 0.72, blue: 0.98),
+                                Color(red: 0.18, green: 0.46, blue: 0.88)
+                            ],
+                            accessibilityLabel: "Bilspel"
+                        ) {
+                            showCarGame = true
                         }
                     }
-                    .padding(.horizontal, 30)
-                    .padding(.vertical, 18)
-                    .background(
-                        RoundedRectangle(cornerRadius: 32)
-                            .fill(Color.white.opacity(0.65))
-                            .shadow(color: Color.black.opacity(0.18), radius: 12, x: 0, y: 8)
-                    )
+
+                    VStack(spacing: 24) {
+                        HomeTileButton(
+                            iconName: "camera.fill",
+                            colors: [
+                                Color(red: 0.99, green: 0.58, blue: 0.32),
+                                Color(red: 0.97, green: 0.34, blue: 0.25)
+                            ],
+                            accessibilityLabel: "Kamera"
+                        ) {
+                            showCamera = true
+                        }
+
+                        HomeTileButton(
+                            iconName: "car.fill",
+                            colors: [
+                                Color(red: 0.42, green: 0.72, blue: 0.98),
+                                Color(red: 0.18, green: 0.46, blue: 0.88)
+                            ],
+                            accessibilityLabel: "Bilspel"
+                        ) {
+                            showCarGame = true
+                        }
+                    }
                 }
-                .buttonStyle(.plain)
             }
             .multilineTextAlignment(.center)
             .padding(.horizontal, 24)
@@ -105,5 +118,49 @@ struct HomeView: View {
         .fullScreenCover(isPresented: $showCamera) {
             CameraView()
         }
+        .fullScreenCover(isPresented: $showCarGame) {
+            CarGameView()
+        }
+    }
+}
+
+struct HomeTileButton: View {
+    let iconName: String
+    let colors: [Color]
+    let accessibilityLabel: String
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 32)
+                    .fill(Color.white.opacity(0.65))
+                    .shadow(color: Color.black.opacity(0.18), radius: 12, x: 0, y: 8)
+
+                ZStack {
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: colors,
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 190, height: 190)
+
+                    Circle()
+                        .stroke(Color.white.opacity(0.8), lineWidth: 6)
+                        .frame(width: 190, height: 190)
+
+                    Image(systemName: iconName)
+                        .font(.system(size: 64, weight: .bold))
+                        .foregroundColor(.white)
+                        .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
+                }
+            }
+            .frame(width: 240, height: 240)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text(accessibilityLabel))
     }
 }
