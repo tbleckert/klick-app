@@ -13,6 +13,7 @@ import ConfettiSwiftUI
 #endif
 
 struct CameraView: View {
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Photo.timestamp, order: .reverse) private var photos: [Photo]
     
@@ -194,6 +195,30 @@ struct CameraView: View {
                         .padding(.trailing, 30)
                 }
                 .padding(.bottom, 40)
+            }
+
+            VStack {
+                HStack {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.black.opacity(0.45))
+                                .frame(width: 52, height: 52)
+
+                            Image(systemName: "house.fill")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .padding(.leading, 20)
+                    .padding(.top, 60)
+
+                    Spacer()
+                }
+
+                Spacer()
             }
         }
 #if canImport(ConfettiSwiftUI)
