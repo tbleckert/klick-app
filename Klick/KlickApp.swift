@@ -36,6 +36,7 @@ struct HomeView: View {
     @State private var showCarGame = false
     @State private var showBalloon = false
     @State private var showAlphabet = false
+    @State private var showBallTilt = false
 
     var body: some View {
         ZStack {
@@ -110,6 +111,18 @@ struct HomeView: View {
                         }
 
                         HomeTileButton(
+                            iconName: "circle.grid.3x3.fill",
+                            colors: [
+                                Color(red: 0.40, green: 0.86, blue: 0.90),
+                                Color(red: 0.18, green: 0.62, blue: 0.76)
+                            ],
+                            accessibilityLabel: "Bollar",
+                            size: tileSize
+                        ) {
+                            showBallTilt = true
+                        }
+
+                        HomeTileButton(
                             iconName: "text.book.closed",
                             colors: [
                                 Color(red: 0.52, green: 0.82, blue: 0.45),
@@ -136,6 +149,9 @@ struct HomeView: View {
         }
         .fullScreenCover(isPresented: $showBalloon) {
             BalloonInflateView()
+        }
+        .fullScreenCover(isPresented: $showBallTilt) {
+            BallTiltView()
         }
         .fullScreenCover(isPresented: $showAlphabet) {
             AlphabetView()
