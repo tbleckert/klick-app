@@ -64,10 +64,14 @@ struct HomeView: View {
                     .font(.custom("Chalkboard SE", size: 36))
                     .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.14))
 
-                ViewThatFits(in: .vertical) {
+                GeometryReader { proxy in
+                    let width = proxy.size.width
+                    let spacing: CGFloat = 18
+                    let tileSize = min((width - spacing) / 2, 190)
+
                     LazyVGrid(
                         columns: [GridItem(.flexible()), GridItem(.flexible())],
-                        spacing: 20
+                        spacing: spacing
                     ) {
                         HomeTileButton(
                             iconName: "camera.fill",
@@ -76,7 +80,7 @@ struct HomeView: View {
                                 Color(red: 0.97, green: 0.34, blue: 0.25)
                             ],
                             accessibilityLabel: "Kamera",
-                            size: 200
+                            size: tileSize
                         ) {
                             showCamera = true
                         }
@@ -88,7 +92,7 @@ struct HomeView: View {
                                 Color(red: 0.18, green: 0.46, blue: 0.88)
                             ],
                             accessibilityLabel: "Bilspel",
-                            size: 200
+                            size: tileSize
                         ) {
                             showCarGame = true
                         }
@@ -100,7 +104,7 @@ struct HomeView: View {
                                 Color(red: 0.90, green: 0.24, blue: 0.52)
                             ],
                             accessibilityLabel: "Ballong",
-                            size: 200
+                            size: tileSize
                         ) {
                             showBalloon = true
                         }
@@ -112,62 +116,14 @@ struct HomeView: View {
                                 Color(red: 0.22, green: 0.62, blue: 0.32)
                             ],
                             accessibilityLabel: "Alfabet",
-                            size: 200
+                            size: tileSize
                         ) {
                             showAlphabet = true
                         }
                     }
-
-                    VStack(spacing: 18) {
-                        HomeTileButton(
-                            iconName: "camera.fill",
-                            colors: [
-                                Color(red: 0.99, green: 0.58, blue: 0.32),
-                                Color(red: 0.97, green: 0.34, blue: 0.25)
-                            ],
-                            accessibilityLabel: "Kamera",
-                            size: 200
-                        ) {
-                            showCamera = true
-                        }
-
-                        HomeTileButton(
-                            iconName: "car.fill",
-                            colors: [
-                                Color(red: 0.42, green: 0.72, blue: 0.98),
-                                Color(red: 0.18, green: 0.46, blue: 0.88)
-                            ],
-                            accessibilityLabel: "Bilspel",
-                            size: 200
-                        ) {
-                            showCarGame = true
-                        }
-
-                        HomeTileButton(
-                            iconName: "balloon.fill",
-                            colors: [
-                                Color(red: 0.98, green: 0.52, blue: 0.74),
-                                Color(red: 0.90, green: 0.24, blue: 0.52)
-                            ],
-                            accessibilityLabel: "Ballong",
-                            size: 200
-                        ) {
-                            showBalloon = true
-                        }
-
-                        HomeTileButton(
-                            iconName: "text.book.closed",
-                            colors: [
-                                Color(red: 0.52, green: 0.82, blue: 0.45),
-                                Color(red: 0.22, green: 0.62, blue: 0.32)
-                            ],
-                            accessibilityLabel: "Alfabet",
-                            size: 200
-                        ) {
-                            showAlphabet = true
-                        }
-                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
+                .frame(maxWidth: 460, maxHeight: 440)
             }
             .multilineTextAlignment(.center)
             .padding(.horizontal, 24)
