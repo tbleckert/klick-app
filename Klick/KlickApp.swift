@@ -34,6 +34,8 @@ struct KlickApp: App {
 struct HomeView: View {
     @State private var showCamera = false
     @State private var showCarGame = false
+    @State private var showBalloon = false
+    @State private var showAlphabet = false
 
     var body: some View {
         ZStack {
@@ -62,15 +64,19 @@ struct HomeView: View {
                     .font(.custom("Chalkboard SE", size: 36))
                     .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.14))
 
-                ViewThatFits(in: .horizontal) {
-                    HStack(spacing: 24) {
+                ViewThatFits(in: .vertical) {
+                    LazyVGrid(
+                        columns: [GridItem(.flexible()), GridItem(.flexible())],
+                        spacing: 20
+                    ) {
                         HomeTileButton(
                             iconName: "camera.fill",
                             colors: [
                                 Color(red: 0.99, green: 0.58, blue: 0.32),
                                 Color(red: 0.97, green: 0.34, blue: 0.25)
                             ],
-                            accessibilityLabel: "Kamera"
+                            accessibilityLabel: "Kamera",
+                            size: 200
                         ) {
                             showCamera = true
                         }
@@ -81,20 +87,46 @@ struct HomeView: View {
                                 Color(red: 0.42, green: 0.72, blue: 0.98),
                                 Color(red: 0.18, green: 0.46, blue: 0.88)
                             ],
-                            accessibilityLabel: "Bilspel"
+                            accessibilityLabel: "Bilspel",
+                            size: 200
                         ) {
                             showCarGame = true
+                        }
+
+                        HomeTileButton(
+                            iconName: "balloon.fill",
+                            colors: [
+                                Color(red: 0.98, green: 0.52, blue: 0.74),
+                                Color(red: 0.90, green: 0.24, blue: 0.52)
+                            ],
+                            accessibilityLabel: "Ballong",
+                            size: 200
+                        ) {
+                            showBalloon = true
+                        }
+
+                        HomeTileButton(
+                            iconName: "text.book.closed",
+                            colors: [
+                                Color(red: 0.52, green: 0.82, blue: 0.45),
+                                Color(red: 0.22, green: 0.62, blue: 0.32)
+                            ],
+                            accessibilityLabel: "Alfabet",
+                            size: 200
+                        ) {
+                            showAlphabet = true
                         }
                     }
 
-                    VStack(spacing: 24) {
+                    VStack(spacing: 18) {
                         HomeTileButton(
                             iconName: "camera.fill",
                             colors: [
                                 Color(red: 0.99, green: 0.58, blue: 0.32),
                                 Color(red: 0.97, green: 0.34, blue: 0.25)
                             ],
-                            accessibilityLabel: "Kamera"
+                            accessibilityLabel: "Kamera",
+                            size: 200
                         ) {
                             showCamera = true
                         }
@@ -105,9 +137,34 @@ struct HomeView: View {
                                 Color(red: 0.42, green: 0.72, blue: 0.98),
                                 Color(red: 0.18, green: 0.46, blue: 0.88)
                             ],
-                            accessibilityLabel: "Bilspel"
+                            accessibilityLabel: "Bilspel",
+                            size: 200
                         ) {
                             showCarGame = true
+                        }
+
+                        HomeTileButton(
+                            iconName: "balloon.fill",
+                            colors: [
+                                Color(red: 0.98, green: 0.52, blue: 0.74),
+                                Color(red: 0.90, green: 0.24, blue: 0.52)
+                            ],
+                            accessibilityLabel: "Ballong",
+                            size: 200
+                        ) {
+                            showBalloon = true
+                        }
+
+                        HomeTileButton(
+                            iconName: "text.book.closed",
+                            colors: [
+                                Color(red: 0.52, green: 0.82, blue: 0.45),
+                                Color(red: 0.22, green: 0.62, blue: 0.32)
+                            ],
+                            accessibilityLabel: "Alfabet",
+                            size: 200
+                        ) {
+                            showAlphabet = true
                         }
                     }
                 }
@@ -121,6 +178,12 @@ struct HomeView: View {
         .fullScreenCover(isPresented: $showCarGame) {
             CarGameView()
         }
+        .fullScreenCover(isPresented: $showBalloon) {
+            BalloonInflateView()
+        }
+        .fullScreenCover(isPresented: $showAlphabet) {
+            AlphabetView()
+        }
     }
 }
 
@@ -128,6 +191,7 @@ struct HomeTileButton: View {
     let iconName: String
     let colors: [Color]
     let accessibilityLabel: String
+    var size: CGFloat = 240
     let action: () -> Void
 
     var body: some View {
@@ -146,19 +210,19 @@ struct HomeTileButton: View {
                                 endPoint: .bottomTrailing
                             )
                         )
-                        .frame(width: 190, height: 190)
+                        .frame(width: size * 0.8, height: size * 0.8)
 
                     Circle()
                         .stroke(Color.white.opacity(0.8), lineWidth: 6)
-                        .frame(width: 190, height: 190)
+                        .frame(width: size * 0.8, height: size * 0.8)
 
                     Image(systemName: iconName)
-                        .font(.system(size: 64, weight: .bold))
+                        .font(.system(size: size * 0.28, weight: .bold))
                         .foregroundColor(.white)
                         .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
                 }
             }
-            .frame(width: 240, height: 240)
+            .frame(width: size, height: size)
         }
         .buttonStyle(.plain)
         .accessibilityLabel(Text(accessibilityLabel))
