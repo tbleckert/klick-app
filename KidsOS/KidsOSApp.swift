@@ -1,6 +1,6 @@
 //
-//  KlickApp.swift
-//  Klick
+//  KidsOSApp.swift
+//  KidsOS
 //
 //  Created by Tobias Bleckert on 2026-01-16.
 //
@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct KlickApp: App {
+struct KidsOSApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Photo.self,

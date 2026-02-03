@@ -1,6 +1,6 @@
 //
 //  CameraManager.swift
-//  Klick
+//  KidsOS
 //
 //  Created by Tobias Bleckert on 2026-01-16.
 //
@@ -221,7 +221,7 @@ class CameraManager: NSObject, ObservableObject {
     }
     
     private func savePhoto(_ imageData: Data) -> String? {
-        let filename = "klick_\(UUID().uuidString).jpg"
+        let filename = "kidsos_\(UUID().uuidString).jpg"
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURL = documentsPath.appendingPathComponent(filename)
         

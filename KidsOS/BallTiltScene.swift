@@ -1,6 +1,6 @@
 //
 //  BallTiltScene.swift
-//  Klick
+//  KidsOS
 //
 //  Created by Tobias Bleckert on 2026-02-03.
 //

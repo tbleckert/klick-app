@@ -1,6 +1,6 @@
 //
 //  FilterAndFrame.swift
-//  Klick
+//  KidsOS
 //
 //  Created by Tobias Bleckert on 2026-01-17.
 //

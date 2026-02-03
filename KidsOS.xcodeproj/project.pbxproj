@@ -16,37 +16,37 @@
 			containerPortal = B73A13472F19B1E60014E037 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B73A134E2F19B1E60014E037;
-			remoteInfo = Klick;
+			remoteInfo = KidsOS;
 		};
 		B73A13692F19B1E70014E037 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B73A13472F19B1E60014E037 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B73A134E2F19B1E60014E037;
-			remoteInfo = Klick;
+			remoteInfo = KidsOS;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B73A134F2F19B1E60014E037 /* Klick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klick.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B73A135E2F19B1E70014E037 /* KlickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B73A13682F19B1E70014E037 /* KlickUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlickUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B73A134F2F19B1E60014E037 /* KidsOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B73A135E2F19B1E70014E037 /* KidsOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B73A13682F19B1E70014E037 /* KidsOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B73A13512F19B1E60014E037 /* Klick */ = {
+		B73A13512F19B1E60014E037 /* KidsOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Klick;
+			path = KidsOS;
 			sourceTree = "<group>";
 		};
-		B73A13612F19B1E70014E037 /* KlickTests */ = {
+		B73A13612F19B1E70014E037 /* KidsOSTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = KlickTests;
+			path = KidsOSTests;
 			sourceTree = "<group>";
 		};
-		B73A136B2F19B1E70014E037 /* KlickUITests */ = {
+		B73A136B2F19B1E70014E037 /* KidsOSUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = KlickUITests;
+			path = KidsOSUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -80,9 +80,9 @@
 		B73A13462F19B1E60014E037 = {
 			isa = PBXGroup;
 			children = (
-				B73A13512F19B1E60014E037 /* Klick */,
-				B73A13612F19B1E70014E037 /* KlickTests */,
-				B73A136B2F19B1E70014E037 /* KlickUITests */,
+				B73A13512F19B1E60014E037 /* KidsOS */,
+				B73A13612F19B1E70014E037 /* KidsOSTests */,
+				B73A136B2F19B1E70014E037 /* KidsOSUITests */,
 				B78718992F1B083700459A80 /* Frameworks */,
 				B73A13502F19B1E60014E037 /* Products */,
 			);
@@ -91,9 +91,9 @@
 		B73A13502F19B1E60014E037 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B73A134F2F19B1E60014E037 /* Klick.app */,
-				B73A135E2F19B1E70014E037 /* KlickTests.xctest */,
-				B73A13682F19B1E70014E037 /* KlickUITests.xctest */,
+				B73A134F2F19B1E60014E037 /* KidsOS.app */,
+				B73A135E2F19B1E70014E037 /* KidsOSTests.xctest */,
+				B73A13682F19B1E70014E037 /* KidsOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B73A134E2F19B1E60014E037 /* Klick */ = {
+		B73A134E2F19B1E60014E037 /* KidsOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B73A13722F19B1E70014E037 /* Build configuration list for PBXNativeTarget "Klick" */;
+			buildConfigurationList = B73A13722F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KidsOS" */;
 			buildPhases = (
 				B73A134B2F19B1E60014E037 /* Sources */,
 				B73A134C2F19B1E60014E037 /* Frameworks */,
@@ -121,19 +121,19 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				B73A13512F19B1E60014E037 /* Klick */,
+				B73A13512F19B1E60014E037 /* KidsOS */,
 			);
-			name = Klick;
+			name = KidsOS;
 			packageProductDependencies = (
 				B787189A2F1B083700459A80 /* ConfettiSwiftUI */,
 			);
-			productName = Klick;
-			productReference = B73A134F2F19B1E60014E037 /* Klick.app */;
+			productName = KidsOS;
+			productReference = B73A134F2F19B1E60014E037 /* KidsOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B73A135D2F19B1E70014E037 /* KlickTests */ = {
+		B73A135D2F19B1E70014E037 /* KidsOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B73A13752F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KlickTests" */;
+			buildConfigurationList = B73A13752F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KidsOSTests" */;
 			buildPhases = (
 				B73A135A2F19B1E70014E037 /* Sources */,
 				B73A135B2F19B1E70014E037 /* Frameworks */,
@@ -145,18 +145,18 @@
 				B73A13602F19B1E70014E037 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B73A13612F19B1E70014E037 /* KlickTests */,
+				B73A13612F19B1E70014E037 /* KidsOSTests */,
 			);
-			name = KlickTests;
+			name = KidsOSTests;
 			packageProductDependencies = (
 			);
-			productName = KlickTests;
-			productReference = B73A135E2F19B1E70014E037 /* KlickTests.xctest */;
+			productName = KidsOSTests;
+			productReference = B73A135E2F19B1E70014E037 /* KidsOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B73A13672F19B1E70014E037 /* KlickUITests */ = {
+		B73A13672F19B1E70014E037 /* KidsOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B73A13782F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KlickUITests" */;
+			buildConfigurationList = B73A13782F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KidsOSUITests" */;
 			buildPhases = (
 				B73A13642F19B1E70014E037 /* Sources */,
 				B73A13652F19B1E70014E037 /* Frameworks */,
@@ -168,13 +168,13 @@
 				B73A136A2F19B1E70014E037 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B73A136B2F19B1E70014E037 /* KlickUITests */,
+				B73A136B2F19B1E70014E037 /* KidsOSUITests */,
 			);
-			name = KlickUITests;
+			name = KidsOSUITests;
 			packageProductDependencies = (
 			);
-			productName = KlickUITests;
-			productReference = B73A13682F19B1E70014E037 /* KlickUITests.xctest */;
+			productName = KidsOSUITests;
+			productReference = B73A13682F19B1E70014E037 /* KidsOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -200,7 +200,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B73A134A2F19B1E60014E037 /* Build configuration list for PBXProject "Klick" */;
+			buildConfigurationList = B73A134A2F19B1E60014E037 /* Build configuration list for PBXProject "KidsOS" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -217,9 +217,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B73A134E2F19B1E60014E037 /* Klick */,
-				B73A135D2F19B1E70014E037 /* KlickTests */,
-				B73A13672F19B1E70014E037 /* KlickUITests */,
+				B73A134E2F19B1E60014E037 /* KidsOS */,
+				B73A135D2F19B1E70014E037 /* KidsOSTests */,
+				B73A13672F19B1E70014E037 /* KidsOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,12 +275,12 @@
 /* Begin PBXTargetDependency section */
 		B73A13602F19B1E70014E037 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B73A134E2F19B1E60014E037 /* Klick */;
+			target = B73A134E2F19B1E60014E037 /* KidsOS */;
 			targetProxy = B73A135F2F19B1E70014E037 /* PBXContainerItemProxy */;
 		};
 		B73A136A2F19B1E70014E037 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B73A134E2F19B1E60014E037 /* Klick */;
+			target = B73A134E2F19B1E60014E037 /* KidsOS */;
 			targetProxy = B73A13692F19B1E70014E037 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -417,7 +417,7 @@
 				DEVELOPMENT_TEAM = NJE9EM7M5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Klick needs access to your camera so you can take awesome photos!";
+				INFOPLIST_KEY_NSCameraUsageDescription = "KidsOS needs access to your camera so you can take awesome photos!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,7 +428,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.Klick;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KidsOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -450,7 +450,7 @@
 				DEVELOPMENT_TEAM = NJE9EM7M5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Klick needs access to your camera so you can take awesome photos!";
+				INFOPLIST_KEY_NSCameraUsageDescription = "KidsOS needs access to your camera so you can take awesome photos!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,7 +461,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.Klick;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KidsOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -483,7 +483,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KlickTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KidsOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -491,7 +491,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Klick";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KidsOS";
 			};
 			name = Debug;
 		};
@@ -505,7 +505,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KlickTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KidsOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -513,7 +513,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Klick";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KidsOS";
 			};
 			name = Release;
 		};
@@ -525,7 +525,7 @@
 				DEVELOPMENT_TEAM = NJE9EM7M5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KlickUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KidsOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -533,7 +533,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Klick;
+				TEST_TARGET_NAME = KidsOS;
 			};
 			name = Debug;
 		};
@@ -545,7 +545,7 @@
 				DEVELOPMENT_TEAM = NJE9EM7M5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KlickUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codebybleckert.KidsOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -553,14 +553,14 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Klick;
+				TEST_TARGET_NAME = KidsOS;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B73A134A2F19B1E60014E037 /* Build configuration list for PBXProject "Klick" */ = {
+		B73A134A2F19B1E60014E037 /* Build configuration list for PBXProject "KidsOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B73A13702F19B1E70014E037 /* Debug */,
@@ -569,7 +569,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B73A13722F19B1E70014E037 /* Build configuration list for PBXNativeTarget "Klick" */ = {
+		B73A13722F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KidsOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B73A13732F19B1E70014E037 /* Debug */,
@@ -578,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B73A13752F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KlickTests" */ = {
+		B73A13752F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KidsOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B73A13762F19B1E70014E037 /* Debug */,
@@ -587,7 +587,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B73A13782F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KlickUITests" */ = {
+		B73A13782F19B1E70014E037 /* Build configuration list for PBXNativeTarget "KidsOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B73A13792F19B1E70014E037 /* Debug */,

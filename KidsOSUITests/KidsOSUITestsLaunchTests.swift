@@ -1,13 +1,13 @@
 //
-//  KlickUITestsLaunchTests.swift
-//  KlickUITests
+//  KidsOSUITestsLaunchTests.swift
+//  KidsOSUITests
 //
 //  Created by Tobias Bleckert on 2026-01-16.
 //
 
 import XCTest
 
-final class KlickUITestsLaunchTests: XCTestCase {
+final class KidsOSUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
